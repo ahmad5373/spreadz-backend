@@ -11,14 +11,9 @@ const protected = async (req, res, next) => {
     if (!token) {
         return res.status(401).json({ error: "Unauthorized Please Login" });
     }
-
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await User.findById(decoded.id).select("-password");
-        if (!user) {
-            return sendResponse(res, 403, 'Invalid User');
-        }
-        req.user = user;
+        req.user = decoded?.user;
         next();
     } catch (error) {
         return sendResponse(res, 401, 'Unauthorized user');
