@@ -13,12 +13,12 @@ const ContatctUs = require("./routes/contactUsRoutes");
 const Vidoe = require("./routes/videoRoutes");
 
 
-// const corsOptions = {
-//     credentials: true,
-//     origin: ['http://localhost:3000']
-// };
+const corsOptions = {
+    credentials: true,
+    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app/']
+};
   
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(errorHandler);
