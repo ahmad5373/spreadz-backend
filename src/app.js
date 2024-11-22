@@ -11,6 +11,7 @@ const User = require("../src/routes/userRoutes");
 const Faqs = require("../src/routes/faqsRoutes");
 const ContatctUs = require("./routes/contactUsRoutes");
 const Vidoe = require("./routes/videoRoutes");
+const policy = require("./routes/policyRoutes");
 
 
 const corsOptions = {
@@ -36,5 +37,6 @@ app.use("/users", User);
 app.use("/faqs", Faqs);
 app.use("/contact-us", ContatctUs);
 app.use("/videos", Vidoe);
+app.use("/policies", policy);
 
 module.exports = app;
