@@ -52,7 +52,7 @@ const loginUser = async (req, res) => {
             return sendResponse(res, 401, "Invalid credentials");
         }
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '8d' });
-        res.cookie("token", token, { httpOnly: true });
+        // res.cookie("token", token, { httpOnly: true });
         const response = {
             user: user,
             access_token: token
