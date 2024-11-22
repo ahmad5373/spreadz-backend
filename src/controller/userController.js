@@ -51,7 +51,7 @@ const loginUser = async (req, res) => {
         if (!user || !await bcrypt.compare(password, user.password)) {
             return sendResponse(res, 401, "Invalid credentials");
         }
-        const token = jwt.sign({ id: user._id }, "itshoudnitabletoalkjdaljsdljals", { expiresIn: '8d' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '8d' });
         // res.cookie("token", token, { httpOnly: true });
         const response = {
             user: user,
