@@ -59,7 +59,7 @@ const loginUser = async (req, res) => {
         }
         return sendResponse(res, 200, "Login Successful", [], response);
     } catch (error) {
-        return sendResponse(res, 500, `Error during login: ${error.message}`);
+        return sendResponse(res, 500, `Error during login: ${error?.message}`, [], error);
     }
 };
 
@@ -89,7 +89,7 @@ const editUser = async (req, res) => {
     const { id } = req.params;
     const { name, email, phone, gender } = req.body;
     try {
-        const updatedUser = await User.findByIdAndUpdate(id, { name, email, gender , phone }, { new: true, runValidators: true });
+        const updatedUser = await User.findByIdAndUpdate(id, { name, email, gender, phone }, { new: true, runValidators: true });
         if (!updatedUser) {
             return sendResponse(res, 404, "User not found");
         }
