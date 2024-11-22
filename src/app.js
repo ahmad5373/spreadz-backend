@@ -15,7 +15,7 @@ const Vidoe = require("./routes/videoRoutes");
 
 const corsOptions = {
     credentials: true,
-    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app/']
+    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app/', 'https://spreadz.vercel.app/']
 };
   
 app.use(cors(corsOptions));
