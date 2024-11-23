@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 const { sendResponse } = require('../utility/api');
-const ContactUs = require('../models/contactUs');
-const Newsletter = require('../models/contactUs');
+const {ContactUs , Newsletter} = require('../models/contactUs');
 dotenv.config();
 
 

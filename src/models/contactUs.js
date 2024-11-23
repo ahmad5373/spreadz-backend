@@ -18,12 +18,6 @@ const ContactUsSchema = new mongoose.Schema({
 { timestamps: true }
 );
 
-const ContactUs = mongoose.model('ContactUs', ContactUsSchema);
-
-module.exports = ContactUs;
-
-
-
 const NewsletterSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -33,6 +27,10 @@ const NewsletterSchema = new mongoose.Schema({
 { timestamps: true }
 );
 
+const ContactUs = mongoose.model('ContactUs', ContactUsSchema);
 const Newsletter = mongoose.model('Newsletter', NewsletterSchema);
 
-module.exports = Newsletter;
+module.exports = {
+    ContactUs,
+    Newsletter,
+};
