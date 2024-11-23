@@ -47,9 +47,14 @@ const createMessageValidation = [
 
 ]
 
+const subscribeNewsletterValidation = [
+  body('email').not().isEmpty().isEmail().withMessage("Valid Email is required"),
+]
+
 module.exports = {
   requestValidation,
   createUserValidation,
   loginValidation,
   createMessageValidation,
+  subscribeNewsletterValidation,
 };
