@@ -12,11 +12,12 @@ const Faqs = require("../src/routes/faqsRoutes");
 const ContatctUs = require("./routes/contactUsRoutes");
 const Vidoe = require("./routes/videoRoutes");
 const policy = require("./routes/policyRoutes");
+const Subscpriptions = require("./routes/subscriptionRoutes");
 
 
 const corsOptions = {
     credentials: true,
-    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app']
+    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app' ,'http://localhost:3000']
 };
   
 app.use(cors(corsOptions));
@@ -38,5 +39,6 @@ app.use("/faqs", Faqs);
 app.use("/contact-us", ContatctUs);
 app.use("/videos", Vidoe);
 app.use("/policies", policy);
+app.use("/subscriptions", Subscpriptions);
 
 module.exports = app;
