@@ -14,12 +14,11 @@ const Vidoe = require("./routes/videoRoutes");
 const policy = require("./routes/policyRoutes");
 const Subscpriptions = require("./routes/subscriptionRoutes");
 
-
 const corsOptions = {
-    credentials: true,
-    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app' ,'http://localhost:3000']
+    origin: ['http://localhost:5173', 'https://spreadz.vercel.app', 'https://spreadz-admin.vercel.app'], 
+    credentials: true
 };
-  
+
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(bodyParser.json());
