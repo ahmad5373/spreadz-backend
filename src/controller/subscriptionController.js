@@ -46,8 +46,8 @@ const checkOutSession = async (req, res) => {
                 },
             ],
             mode: "subscription",
-            success_url: "http://localhost:3000/success",
-            cancel_url: "http://localhost:3000/cancel",
+            success_url: "https://spreadz.vercel.app/success",
+            cancel_url: "https://spreadz.vercel.app/cancel",
         });
         res.json({ url: session.url });
         await saveSubscription('67401ae377702d372eec3394', plan._id, billingCycle, session.id);
