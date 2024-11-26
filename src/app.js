@@ -15,7 +15,7 @@ const policy = require("./routes/policyRoutes");
 const Subscpriptions = require("./routes/subscriptionRoutes");
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://spreadz.vercel.app', 'https://spreadz-admin.vercel.app'], 
+    origin: ['https://spreadz.vercel.app', 'https://spreadz-admin.vercel.app'], 
     credentials: true
 };
 
