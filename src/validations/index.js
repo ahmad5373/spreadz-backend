@@ -51,10 +51,18 @@ const subscribeNewsletterValidation = [
   body('email').not().isEmpty().isEmail().withMessage("Valid Email is required"),
 ]
 
+const createBlogValidation = [
+  body('title').not().isEmpty().withMessage("title is required"),
+  body('description').not().isEmpty().withMessage("description is required"),
+  body('imageUrl').not().isEmpty().withMessage("Post Image is required"),
+]
+
+
 module.exports = {
   requestValidation,
   createUserValidation,
   loginValidation,
   createMessageValidation,
   subscribeNewsletterValidation,
+ createBlogValidation,
 };

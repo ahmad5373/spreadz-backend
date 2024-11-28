@@ -59,7 +59,7 @@ const loginUser = async (req, res) => {
         }
         return sendResponse(res, 200, "Login Successful", [], response);
     } catch (error) {
-        return sendResponse(res, 500, `Error during login: ${error?.message}`, [], error);
+        return sendResponse(res, 500, `Error during login: ${error?.message}`);
     }
 };
 
