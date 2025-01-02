@@ -4,8 +4,7 @@ const { sendResponse } = require('../utility/api');
 
 const createBlogs = async (req, res) => {
     const { title, description, postType, imageUrl, postOwner } = req.body;
-    console.log("req.body =>", req.body);
-    console.log("title =>", title);
+
     try {
         await Blog.create({ title, description, postType, imageUrl, postOwner });
         return sendResponse(res, 201, "Blog Created Successfully!");
