@@ -37,7 +37,6 @@ const checkOutSession = async (req, res) => {
         if (!priceId) {
             return res.status(400).json({ error: "Invalid plan or billing cycle" });
         }
-        console.log("stripe =>", stripe);
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: [
@@ -54,7 +53,7 @@ const checkOutSession = async (req, res) => {
         await saveSubscription('67401ae377702d372eec3394', plan._id, billingCycle, session.id);
     } catch (error) {
         console.error("Error creating checkout session:", error);
-        return sendResponse(res, 500, "Failed to fetch plans", error.message);
+        return sendResponse(res, 500, "Failed to fetch plans", error.message );
 
     }
 };
