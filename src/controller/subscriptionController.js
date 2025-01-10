@@ -16,16 +16,16 @@ const getAllPlans = async (req, res) => {
 
 const prices = {
     Basic: {
-        monthly: "price_1QP5sDAMrpg8m0TRpJmq5VXw",
-        yearly: "price_1QP6SBAMrpg8m0TRyVKCd5TD",
+        monthly: "price_1QfMBeCerSFfKjNXmAEp82ge",
+        yearly: "price_1QfN3XCerSFfKjNXyVx65aqg",
     },
     Pro: {
-        monthly: "price_1QP5rMAMrpg8m0TR0E4RJm1A",
-        yearly: "price_1QP6TTAMrpg8m0TRgSs2XYhT",
+        monthly: "price_1QfN5OCerSFfKjNXz1vCVFBl",
+        yearly: "price_1QfN6KCerSFfKjNXQQ8bob6L",
     },
     Excellence: {
-        monthly: "price_1QP5qaAMrpg8m0TRRG5mOovm",
-        yearly: "price_1QP6TwAMrpg8m0TRzzxtYB4c",
+        monthly: "price_1QfN81CerSFfKjNXIRICC465",
+        yearly: "price_1QfaUwCerSFfKjNXTA1MhD7g",
     },
 };
 
