@@ -3,10 +3,11 @@ const Blog = require('../models/blog');
 const { sendResponse } = require('../utility/api');
 
 const createBlogs = async (req, res) => {
-    const { title, description, postType, imageUrl, postOwner } = req.body;
+    const { title, subTitle, description, postType, imageUrl, postOwner } = req.body;
+    console.log('req.body :>> ', req.body);
 
     try {
-        await Blog.create({ title, description, postType, imageUrl, postOwner });
+        await Blog.create({ title, subTitle, description, postType, imageUrl, postOwner });
         return sendResponse(res, 201, "Blog Created Successfully!");
     } catch (error) {
         return sendResponse(res, 500, `Error creating Blog: ${error.message}`);
@@ -38,9 +39,9 @@ const getblogsWithId = async (req, res) => {
 
 const editBlogs = async (req, res) => {
     const { id } = req.params;
-    const { title, description, postType, imageUrl } = req.body;
+    const { title, subTitle, description, postType, imageUrl } = req.body;
     try {
-        const updateBlogs = await Blog.findByIdAndUpdate(id, { title, description, postType, imageUrl }, { new: true, runValidators: true });
+        const updateBlogs = await Blog.findByIdAndUpdate(id, { title, subTitle, description, postType, imageUrl }, { new: true, runValidators: true });
         if (!updateBlogs) {
             return sendResponse(res, 404, "blogs not found");
         }
