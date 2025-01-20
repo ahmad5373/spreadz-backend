@@ -38,7 +38,7 @@ const getblogsWithId = async (req, res) => {
             return sendResponse(res, 404, "blogs not found");
         }
         const comment = await Comment.find({ post_id: blogs._id }).populate('user_id', 'name email imageUrl')
-        return sendResponse(res, 200, "blogs details fetched successfully", [], { ...blogs.toObject(), comment: comment });
+        return sendResponse(res, 200, "blogs details fetched successfully", [], { ...blogs.toObject(), comments: comment });
     } catch (error) {
         return sendResponse(res, 500, `Error fetching blogs: ${error.message}`);
     }
