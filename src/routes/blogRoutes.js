@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/create-blogs',protected, createBlogValidation, requestValidation, createBlogs);
 router.get('/get-blogs',  getAllBlogs);
-router.get('/:id', protected,   getblogsWithId);
+router.get('/:id',   getblogsWithId);
 router.put('/:id', protected, editBlogs);
 router.delete('/:id',protected, deleteBlogs);
 
