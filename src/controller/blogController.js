@@ -1,10 +1,10 @@
 
 const Blog = require('../models/blog');
+const Comment = require('../models/comment');
 const { sendResponse } = require('../utility/api');
 
 const createBlogs = async (req, res) => {
     const { title, subTitle, description, postType, imageUrl, postOwner } = req.body;
-    console.log('req.body :>> ', req.body);
 
     try {
         await Blog.create({ title, subTitle, description, postType, imageUrl, postOwner });
@@ -18,7 +18,13 @@ const createBlogs = async (req, res) => {
 const getAllBlogs = async (req, res) => {
     try {
         const blogs = await Blog.find()
-        return sendResponse(res, 200, "All blogs fetched successfully", [], blogs);
+        const blogWithComments = await Promise.all(
+            blogs.map(async (blog) => {
+                const comments = await Comment.find({ post_id: blog._id }).populate('user_id', 'name email imageUrl');
+                return { ...blog.toObject(), comments };
+            })
+        );
+        return sendResponse(res, 200, "All blogs fetched successfully", [], blogWithComments);
     } catch (error) {
         return sendResponse(res, 500, `Error fetching blogs: ${error.message}`);
     }
@@ -27,11 +33,12 @@ const getAllBlogs = async (req, res) => {
 const getblogsWithId = async (req, res) => {
     const { id } = req.params;
     try {
-        const blogs = await Blog.findById(id)
+        const blogs = await Blog.findById(id);
         if (!blogs) {
             return sendResponse(res, 404, "blogs not found");
         }
-        return sendResponse(res, 200, "blogs details fetched successfully", [], blogs);
+        const comment = await Comment.find({ post_id: blogs._id }).populate('user_id', 'name email imageUrl')
+        return sendResponse(res, 200, "blogs details fetched successfully", [], { ...blogs.toObject(), comment: comment });
     } catch (error) {
         return sendResponse(res, 500, `Error fetching blogs: ${error.message}`);
     }

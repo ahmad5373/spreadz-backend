@@ -14,6 +14,9 @@ const Vidoe = require("./routes/videoRoutes");
 const policy = require("./routes/policyRoutes");
 const Subscpriptions = require("./routes/subscriptionRoutes");
 const Blogs = require("./routes/blogRoutes");
+const Comments = require("./routes/commentRoutes");
+
+
 
 
 const corsOptions = {
@@ -42,5 +45,6 @@ app.use("/videos", Vidoe);
 app.use("/policies", policy);
 app.use("/subscriptions", Subscpriptions);
 app.use("/blogs",Blogs);
+app.use("/comments",Comments);
 
 module.exports = app;
