@@ -5,14 +5,17 @@ const CommentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    website: {
+        type: String,
+    },
     user_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-      },
+    },
     post_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Blog',
-      },
+    },
 }, { timestamps: true });
 
 
