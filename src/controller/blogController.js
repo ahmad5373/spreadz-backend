@@ -63,7 +63,7 @@ const deleteBlogs = async (req, res) => {
     try {
         const blogs = await Blog.findById(id);
         if (!blogs) {
-            return sendResponse(res, 404, "Faqs not found");
+            return sendResponse(res, 404, "Blog not found");
         }
         await Blog.deleteOne({ _id: id });
         return sendResponse(res, 200, "blogs deleted successfully");
