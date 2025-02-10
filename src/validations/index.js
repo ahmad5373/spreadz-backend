@@ -64,6 +64,10 @@ const addCommentValidation = [
 ]
 
 
+const requestGuideValidation = [
+  body('email').not().isEmpty().isEmail().withMessage("Valid Email is required")
+]
+
 module.exports = {
   requestValidation,
   createUserValidation,
@@ -72,4 +76,5 @@ module.exports = {
   subscribeNewsletterValidation,
   createBlogValidation,
   addCommentValidation,
+  requestGuideValidation,
 };
