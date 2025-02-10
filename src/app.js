@@ -15,6 +15,7 @@ const policy = require("./routes/policyRoutes");
 const Subscpriptions = require("./routes/subscriptionRoutes");
 const Blogs = require("./routes/blogRoutes");
 const Comments = require("./routes/commentRoutes");
+const requestGuides = require("./routes/requestGuideRoutes");
 
 
 
@@ -46,5 +47,6 @@ app.use("/policies", policy);
 app.use("/subscriptions", Subscpriptions);
 app.use("/blogs",Blogs);
 app.use("/comments",Comments);
+app.use("/guides",requestGuides);
 
 module.exports = app;
