@@ -17,19 +17,16 @@ const Blogs = require("./routes/blogRoutes");
 const Comments = require("./routes/commentRoutes");
 const requestGuides = require("./routes/requestGuideRoutes");
 
-
-
-
-const corsOptions = {
-    credentials: true,
-    origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app' ,'http://localhost:3000']
-};
+// const corsOptions = {
+//     credentials: true,
+//     origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app' ,'http://localhost:3000']
+// };
 app.use(
     cors({
-      origin: "*", // Allow all origins
-      credentials: true, // Allow cookies
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
-      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+      origin: "*", 
+      credentials: true, 
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
     })
   );
 app.use(cookieParser());
@@ -40,7 +37,6 @@ app.use(errorHandler);
 connectionDB();
 // createAdmin(); 
 
-//Default route
 app.get('/' , (req,res)=>{
     res.send("Application is currently working !")
 });
