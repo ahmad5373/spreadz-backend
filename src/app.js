@@ -24,8 +24,14 @@ const corsOptions = {
     credentials: true,
     origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app' ,'http://localhost:3000']
 };
-  
-app.use(cors());
+app.use(
+    cors({
+      origin: "*", // Allow all origins
+      credentials: true, // Allow cookies
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
+      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    })
+  );
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(errorHandler);
