@@ -25,7 +25,7 @@ const corsOptions = {
     origin: ['http://localhost:5173' ,'https://spreadz-admin.vercel.app', 'https://spreadz.vercel.app' ,'http://localhost:3000']
 };
   
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(errorHandler);
